@@ -1,9 +1,9 @@
-FROM tokaido/admin72:stable
+FROM tokaido/admin72:edge
 COPY configs/sudoers /etc/sudoers
 COPY configs/fzf.bash /home/tok/.fzf.bash
 RUN apt-get update \
     && apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" \
-        ruby-full \        
+        ruby-full \
         sudo \
     && git clone --depth 1 https://github.com/junegunn/fzf.git /home/tok/.fzf \
     && cd /home/tok && ./.fzf/install \
